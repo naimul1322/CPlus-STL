@@ -4,10 +4,8 @@
 using namespace std;
 #define endl "\n"
 
-bool isbalance(char c1,char c2)
-{
-    return (c1=='(' && c2==')') || (c1=='{' && c2=='}') ||(c1=='[' && c2==']');
-}
+const int mx=2e5+123;
+int a[mx];
 
 int main()
 {
@@ -16,39 +14,28 @@ int main()
     //cout<<fixed<<setprecision(2);
      int n;
      cin>>n;
-     while(n--)
+     priority_queue<int> q;
+     for(int i=0; i<n; i++)
      {
-         string s;
-         cin>>s;
-         stack<char> st;
-         bool ans=1;
-         for(auto u: s)
+         cin>>a[i];
+     }
+     for(int i=0; i<n; i++)
+     {
+         q.push(a[i]);
+         if(q.size()>=3)
          {
-             if(u=='(' || u=='{' || u=='[') st.push(u);
-             else
-             {
-                 if(st.empty())
-                 {
-                     ans=0;
-                     break;
-                 }
-                 else
-                 {
-                     if(isbalance(st.top(),u))
-                     {
-                         st.pop();
-                     }
-                     else
-                     {
-                         ans=0;
-                         break;
-                     }
-                 }
-             }
+             int a=q.top();
+             q.pop();
+             int b=q.top();
+             q.pop();
+             int c=q.top();
+             q.pop();
+             cout<<1LL*a*b*c<<endl;
+             q.push(a);
+             q.push(b);
+             q.push(c);
          }
-         if(!st.empty())ans=0;
-         if(ans) cout<<"Yes"<<endl;
-         else cout<<"No"<<endl;
+         else cout<<-1<<endl;
      }
 
 }

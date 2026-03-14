@@ -10,26 +10,28 @@ int main()
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
 
-    int n,m;
+    int m,n;
     cin>>m>>n;
-    priority_queue<int> p;
+    priority_queue<long long> q;
     for(int i=0; i<m; i++)
     {
         int x;
         cin>>x;
-        p.push(x);
+        q.push(x);
     }
-    long long  ans=0;
+    long long ans=0;
     for(int i=0; i<n; i++)
     {
-       int a=p.top();
-       p.pop();
-       ans+=a;
-       a--;
-       if(a>0) p.push(a);
+        if(!q.empty())
+        {
+            int a=q.top();
+            q.pop();
+            ans+=a;
+            a--;
+            if(a>0) q.push(a);
+        }
     }
-    cout<<ans<<endl;
-
+     cout<<ans<<endl;
 
 }
 

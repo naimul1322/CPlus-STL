@@ -9,27 +9,35 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
+    int tc;
+    cin>>tc;
+    while(tc--)
+    {
+
     int n;
     cin>>n;
-    vector<int> v(n);
+    priority_queue<int> q;
     for(int i=0; i<n; i++)
     {
-        cin>>v[i];
+        int x;
+        cin>>x;
+        q.push(-x);
     }
-    int d=v[1]-v[0];
-    vector<int> tmp;
-    for(int i=2; i<n; i++)
+    long long ans=0;
+    for(int i=0; i<n; i++)
     {
-        if(v[i+1]-v[i]==d){
-            tmp.push_back(d);
+        if(q.size()>1)
+        {
+            int a=-q.top();
+            q.pop();
+            int b=-q.top();
+            q.pop();
+            q.push(-(a+b));
+            ans+=(a+b);
         }
     }
-    for(auto u: tmp)
-    {
-        cout<<u<<" ";
+    cout<<ans<<endl;
+
     }
-    cout<<endl;
-
-
 }
 
