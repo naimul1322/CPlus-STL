@@ -12,18 +12,15 @@ int main()
 
     int n;
     cin>>n;
-    map<string ,int> mp;
+    map<int,int> cnt;
+    vector<int> v(n);
     for(int i=0; i<n; i++)
     {
-        string s;
-        cin>>s;
-        mp[s]++;
+        cin>>v[i];
+        cnt[v[i]]++;
     }
-    int ans=0;
-    for(auto u: mp)
-    {
-        if(u.second==2) ans++;
-    }
+    int ans=INT_MAX;
+    for(int i=0; i<n; i++) ans=min(ans,cnt[v[i]]);
     cout<<ans<<endl;
 
 

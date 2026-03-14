@@ -12,20 +12,23 @@ int main()
 
     int n;
     cin>>n;
-    vector<int> v(n);
-    for(int i=0; i<n; i++)
+    vector<int>v(n);
+    map<int,int>cnt;
+    for(int i=1; i<=n; i++)
     {
         cin>>v[i];
+        cnt[v[i]]++;
     }
-    sort(v.begin(),v.end());
-    int c=0,p;
-    for(auto u: v)
+    int ans=0;
+    for(auto u: cnt)
     {
-        if(u==4) break;
-        p=u;
-        c++;
+        if(u.second>=u.first)
+        {
+            ans+=(u.second-u.first);
+        }
+        else ans+=u.second;
     }
-    cout<<p<<endl;
+    cout<<ans<<endl;
 
 
 }

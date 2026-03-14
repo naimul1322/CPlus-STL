@@ -12,19 +12,24 @@ int main()
 
     int n;
     cin>>n;
-    map<string ,int> mp;
+    int a[3][3];
+    int sum=0;
     for(int i=0; i<n; i++)
     {
-        string s;
-        cin>>s;
-        mp[s]++;
+        for(int j=0; j<n; i++)
+        {
+            cin>>a[i][j];
+            sum+=a[i][j];
+        }
+
     }
-    int ans=0;
-    for(auto u: mp)
+
+    if(sum==0)
     {
-        if(u.second==2) ans++;
+        cout<<"Yes"<<endl;
+
     }
-    cout<<ans<<endl;
+    else cout<<"No"<<endl;
 
 
 }

@@ -9,30 +9,26 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
-
     int tc;
     cin>>tc;
     while(tc--)
     {
-        int n,k;
-        cin>>n;
-        int a[n+1];
-        for(int i=0; i<n; i++)cin>>a[i];
-        cin>>k;
+        int n,m;
+        cin>>n>>m;
         vector<pair<int,int>>v;
-        for(int i=0; i<n; i++)
+        for(int i=0; i<m; i++)
         {
-            for(int j=0; j<n; j++)
-            {
-                if(i!=j && a[i]-a[j]==k)
-                {
-                    v.push_back({a[i],a[j]});
-                }
-            }
+            int a,b;
+            cin>>a>>b;
+            v.push_back({a,b});
         }
         sort(v.begin(),v.end());
         int sz=unique(v.begin(),v.end())-v.begin();
-        cout<<sz<<endl;
+        if(sz==m)
+        {
+            cout<<"possible"<<endl;
+        }
+        else cout<<"Impossible"<<endl;
     }
 
 

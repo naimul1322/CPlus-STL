@@ -12,19 +12,19 @@ int main()
 
     int n;
     cin>>n;
-    map<string ,int> mp;
+    vector<int> v;
+    map<int,int> mp;
     for(int i=0; i<n; i++)
     {
-        string s;
-        cin>>s;
-        mp[s]++;
+        cin>>v[i];
+        mp[v[i]]++;
     }
-    int ans=0;
-    for(auto u: mp)
-    {
-        if(u.second==2) ans++;
-    }
-    cout<<ans<<endl;
+  for(auto u: mp)
+  {
+      cout<<u.first<<" "<<u.second<<endl;
+  }
+
+
 
 
 }

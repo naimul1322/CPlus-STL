@@ -9,22 +9,17 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
+
     int n;
     cin>>n;
-    vector<pair<int,int>>p;
-    for(int i=0; i<n; i++)
-    {
-        int a,b;
-        cin>>a>>b;
-        p.push_back({a,b});
-
-    }
-    sort(p.rbegin(),p.rend());
-    for(auto u: p)
-    {
-        cout<<u.first<<" "<<u.second<<endl;
-    }
-
-
+   map<string ,int> cnt;
+   while(n--)
+   {
+       string s;
+       cin>>s;
+       if(cnt[s]==0) cout<<"OK"<<endl;
+       else cout<<s<<cnt[s]<<endl;
+       cnt[s]++;
+   }
 }
 

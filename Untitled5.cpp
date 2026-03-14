@@ -10,18 +10,29 @@ int main()
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
 
-    int n;
-    cin>>n;
-   // vector<int> v(n);
-    set<int> s;
-    for(int i=0; i<n; i++)
+    int tc;
+    cin>>tc;
+    while(tc--)
     {
-        int a;
-        cin>>a;
-        s.insert(a);
+        string s;
+        char c;
+        cin>>c;
+        getline(cin,s);
+        s=c+s;
+        string tmp;
+        vector<string>v;
+        for(auto u: s)
+        {
+            if(isspace(u))
+            {
+                v.push_back(tmp);
+                v.clear();
+            }
+            else tmp+=u;
+
+        }
+        v.push_back(tmp);
     }
-    if(s.size()==n) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
 
 
 

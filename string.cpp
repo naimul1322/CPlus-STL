@@ -1,26 +1,53 @@
-/// In the name of ALLAH
-
 #include<bits/stdc++.h>
 using namespace std;
-#define endl "\n"
+
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
-    //cout<<fixed<<setprecision(2);
-   string s;
-   cin>>s;
-   string tmp=s;
-   string sk;
-   for(int i=tmp.size()-1; i>=0; i--)
-   {
-       sk+=tmp[i];
-   }
-   if(sk==s) cout<<"YES"<<endl;
-   else cout<<"NO"<<endl;
+    int t;
+    cin >> t;
+
+    while ( t-- ) {
+        string s;
+        char c;
+        cin >> c;
+        getline ( cin, s );
+        s = c + s;
+
+        string tmp;
+
+        vector<string> v; /// the devil in the sky
+        for ( auto u : s ) {
+            if ( isspace( u ) ) {
+                v.push_back ( tmp );
+                tmp.clear();
+            }
+
+            else tmp += u;
+        }
+
+        v.push_back ( tmp );
+
+        map<string,int> cnt;
+
+        int mxFrq = 0;
+        for ( auto u : v ) {
+            cnt[u]++;
+            mxFrq = max ( mxFrq, cnt[u] );
+        }
+
+        string ans;
+
+        for ( auto u : v ) {
+            if ( cnt[u] == mxFrq ) {
+                ans = u;
+                break;
+            }
+        }
+
+        cout << ans << " " << mxFrq << endl;
 
 
 
+    }
 }
-

@@ -13,31 +13,44 @@ int main()
     cin>>tc;
     while(tc--)
     {
+        string s;
+        char c;
+        cin>>c;
+        getline(cin,s);
+        s=c+s;
 
-    int n;
-    cin>>n;
-    priority_queue<int> q;
-    for(int i=0; i<n; i++)
-    {
-        int x;
-        cin>>x;
-        q.push(-x);
-    }
-    long long ans=0;
-    for(int i=0; i<n; i++)
-    {
-        if(q.size()>1)
+        string tmp;
+        vector<string>v;
+        for(auto u:s)
         {
-            int a=-q.top();
-            q.pop();
-            int b=-q.top();
-            q.pop();
-            q.push(-(a+b));
-            ans+=(a+b);
+            if(isspace(u))
+            {
+                v.push_back(tmp);
+                v.clear();
+            }
+            else tmp+=u;
         }
-    }
-    cout<<ans<<endl;
+        v.push_back(tmp);
 
+        map<string ,int>cnt;
+       int mxfrq=0;
+       for(auto u: v)
+       {
+           cnt[u]++;
+           mxfrq=max(mxfrq,cnt[u]);
+       }
+       string ans;
+       for(auto u: v)
+       {
+           if(cnt[u]==mxfrq)
+           {
+               ans=u;
+               break;
+           }
+       }
+       cout<<ans<<" "<<mxfrq<<endl;
     }
+
+
 }
 
