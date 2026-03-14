@@ -12,17 +12,20 @@ int main()
 
     int n;
     cin>>n;
-   // vector<int> v(n);
-    set<int> s;
+    vector<int> v(n);
     for(int i=0; i<n; i++)
     {
-        int a;
-        cin>>a;
-        s.insert(a);
+        cin>>v[i];
     }
-    if(s.size()==n) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
-
+    sort(v.begin(),v.end());
+    int c=0,p;
+    for(auto u: v)
+    {
+        if(u==4) break;
+        p=u;
+        c++;
+    }
+    cout<<p<<endl;
 
 
 }

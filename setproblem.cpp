@@ -10,9 +10,9 @@ int main()
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
 
+
     int n;
     cin>>n;
-   // vector<int> v(n);
     set<int> s;
     for(int i=0; i<n; i++)
     {
@@ -20,10 +20,12 @@ int main()
         cin>>a;
         s.insert(a);
     }
-    if(s.size()==n) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
-
-
+    cout<<s.size()<<endl;
+     for(auto u: s)
+     {
+         cout<<u<<" ";
+     }
+     cout<<endl;
 
 }
 

@@ -12,16 +12,26 @@ int main()
 
     int n;
     cin>>n;
-   // vector<int> v(n);
     set<int> s;
-    for(int i=0; i<n; i++)
+    int q;
+    cin>>q;
+    for(int i=0; i<q; i++)
     {
         int a;
         cin>>a;
         s.insert(a);
+
     }
-    if(s.size()==n) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+    cin>>q;
+    for(int i=0; i<q; i++)
+    {
+        int a;
+        cin>>a;
+        s.insert(a);
+
+    }
+    if(s.size()==n) cout<<"Yes"<<endl;
+    else cout<<"No"<<endl;
 
 
 

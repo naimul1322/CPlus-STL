@@ -12,7 +12,6 @@ int main()
 
     int n;
     cin>>n;
-   // vector<int> v(n);
     set<int> s;
     for(int i=0; i<n; i++)
     {
@@ -20,9 +19,11 @@ int main()
         cin>>a;
         s.insert(a);
     }
-    if(s.size()==n) cout<<"YES"<<endl;
+    if(s.size()>1)
+    {
+        cout<<*(++s.begin())<<endl;
+    }
     else cout<<"NO"<<endl;
-
 
 
 }

@@ -9,20 +9,21 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
-
     int n;
     cin>>n;
-   // vector<int> v(n);
-    set<int> s;
+    set<int> st;
+    for(int i=0; i<=n; i++)
+    {
+        st.insert(i);
+    }
     for(int i=0; i<n; i++)
     {
-        int a;
-        cin>>a;
-        s.insert(a);
-    }
-    if(s.size()==n) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+        int x;
+        cin>>x;
+        st.erase(x);
 
+    }
+    cout<<*st.begin()<<endl;
 
 
 }
