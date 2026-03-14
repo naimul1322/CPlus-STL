@@ -4,40 +4,32 @@
 using namespace std;
 #define endl "\n"
 
-void slove()
-{
-      string s;
-        cin>>s;
-        int cnt=0;
-        int scnt=0;
-        int bcnt=0;
-        for(int i=0; i<s.size(); i++)
-        {
-            if(s[i]>='0' && s[i]<='9') {
-                cnt++;
-            }
-            else if(s[i]>='a' && s[i]<='z')
-            {
-                scnt++;
-            }
-            else bcnt++;
-        }
-        cout<<cnt<<endl;
-        cout<<scnt<<endl;
-        cout<<bcnt<<endl;
-}
-
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
-    int tc;
-    cin>>tc;
-    while(tc--)
+    int n;
+    cin>>n;
+    vector<int> v(n);
+    for(int i=0; i<n; i++)
     {
-       slove();
-
+        cin>>v[i];
     }
+    int d=v[1]-v[0];
+    vector<int> tmp;
+    for(int i=2; i<n; i++)
+    {
+        if(v[i+1]-v[i]==d){
+            tmp.push_back(d);
+        }
+    }
+    for(auto u: tmp)
+    {
+        cout<<u<<" ";
+    }
+    cout<<endl;
+
+
 }
 
