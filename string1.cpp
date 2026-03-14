@@ -2,7 +2,7 @@
 
 #include<bits/stdc++.h>
 using namespace std;
-#define endl '\n'
+#define endl "\n"
 
 int main()
 {
@@ -10,18 +10,13 @@ int main()
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
 
-    int t;
-    cin>>t;
-    while(t--)
-    {
-        long long l,r;
-        cin>>l>>r;
-        long long a=min(l,r);
-        long long b=max(l,r);
-        long long sum=(b-a+1)*(a+b)/2;
-        cout<<sum<<endl;
-    }
-
+     string s1,s2;
+     cin>>s1>>s2;
+     transform(s1.begin(),s1.end(),s1.begin(),::tolower);
+     transform(s2.begin(),s2.end(),s2.begin(),::tolower);
+     if(s1<s2) cout<<-1<<endl;
+     else if(s1>s2) cout<<1<<endl;
+     else cout<<0<<endl;
 
 }
 
