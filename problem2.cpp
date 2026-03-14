@@ -9,29 +9,18 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
-
-    int m,n;
-    cin>>m>>n;
-    priority_queue<long long> q;
-    for(int i=0; i<m; i++)
-    {
-        int x;
-        cin>>x;
-        q.push(x);
-    }
-    long long ans=0;
-    for(int i=0; i<n; i++)
-    {
-        if(!q.empty())
-        {
-            int a=q.top();
-            q.pop();
-            ans+=a;
-            a--;
-            if(a>0) q.push(a);
-        }
-    }
-     cout<<ans<<endl;
+    int n;
+    cin>>n;
+    vector<pair<string,string>>v;
+     for(int i=0; i<n; i++)
+     {
+         string s1,s2;
+         cin>>s1>>s2;
+         v.push_back({s1,s2});
+     }
+     sort(v.begin(),v.end());
+     int sz=unique(v.begin(),v.end())-v.begin();
+     cout<<sz<<endl;
 
 }
 

@@ -9,22 +9,17 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
     //cout<<fixed<<setprecision(2);
+
+    set<pair<string,string>>s;
     int n;
     cin>>n;
-    vector<pair<int,int>>p;
     for(int i=0; i<n; i++)
     {
-        int a,b;
-        cin>>a>>b;
-        p.push_back({a,b});
-
+        string s,k;
+        cin>>s>>k;
+    //    s.insert({s,k});
     }
-    sort(p.rbegin(),p.rend());
-    for(auto u: p)
-    {
-        cout<<u.first<<" "<<u.second<<endl;
-    }
-
+     cout<<s.size()<<endl;
 
 }
 
